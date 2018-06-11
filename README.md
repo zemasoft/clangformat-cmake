@@ -1,3 +1,4 @@
+[![Language](https://img.shields.io/badge/language-CMake-blue.svg)](https://cmake.org/)
 [![Licence](https://img.shields.io/badge/license-Boost%201.0-blue.svg)](http://www.boost.org/LICENSE_1_0.txt)
 
 Introduction
@@ -51,3 +52,4 @@ $ cmake --build build/ --target clangformat
 Example
 =======
 
+Please see an example [here](https://github.com/zemasoft/clangformat-cmake-example).
