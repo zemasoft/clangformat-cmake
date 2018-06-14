@@ -9,7 +9,7 @@ A simple CMake module for clang-format support.
 Requirements
 ============
 
-The module requires CMake 2.8 and some version of clang-format.
+The module requires CMake 2.8 or higher and any version of clang-format.
 
 Usage
 =====
@@ -42,7 +42,7 @@ endif()
 ... # Setup the rest of the project
 ```
 
-3. Format using `clangformat` target.
+3. Format sources anytime using `clangformat` target:
 
 ```bash
 $ cmake . -Bbuild
@@ -52,4 +52,6 @@ $ cmake --build build/ --target clangformat
 Example
 =======
 
-Please see an example [here](https://github.com/zemasoft/clangformat-cmake-example).
+Please see
+[`clangformat-cmake-example`](https://github.com/zemasoft/clangformat-cmake-example)
+.
