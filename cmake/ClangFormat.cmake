@@ -41,6 +41,6 @@ function(clangformat_setup)
 endfunction()
 
 function(target_clangformat_setup target)
-  get_target_property(sources ${target} SOURCES)
-  clangformat_setup(${sources})
+  get_target_property(target_sources ${target} SOURCES)
+  clangformat_setup(${target_sources})
 endfunction()
