@@ -1,9 +1,9 @@
-# Copyright Tomas Zeman 2018.
+# Copyright Tomas Zeman 2019.
 # Distributed under the Boost Software License, Version 1.0.
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
 
-function(clangformat_setup clangformat_srcs)
+function(clangformat_sources_setup)
   if(NOT CLANGFORMAT_EXECUTABLE)
     set(CLANGFORMAT_EXECUTABLE clang-format)
   endif()
@@ -18,23 +18,30 @@ function(clangformat_setup clangformat_srcs)
     endif()
   endif()
 
-  foreach(clangformat_src ${clangformat_srcs})
-    get_filename_component(clangformat_src ${clangformat_src} ABSOLUTE)
-    list(APPEND clangformat_srcs_tmp ${clangformat_src})
+  foreach(source ${ARGV})
+    get_filename_component(source ${source} ABSOLUTE)
+    list(APPEND sources ${source})
   endforeach()
-  set(clangformat_srcs "${clangformat_srcs_tmp}")
-  unset(clangformat_srcs_tmp)
 
   add_custom_target(${PROJECT_NAME}_clangformat
-                    COMMAND ${CLANGFORMAT_EXECUTABLE}
-                            -style=file
-                            -i
-                            ${clangformat_srcs}
-                    COMMENT "Formating with ${CLANGFORMAT_EXECUTABLE} ...")
+    COMMAND
+      ${CLANGFORMAT_EXECUTABLE}
+      -style=file
+      -i
+      ${sources}
+    COMMENT
+      "Formating with ${CLANGFORMAT_EXECUTABLE} ..."
+  )
 
   if(TARGET clangformat)
     add_dependencies(clangformat ${PROJECT_NAME}_clangformat)
   else()
     add_custom_target(clangformat DEPENDS ${PROJECT_NAME}_clangformat)
   endif()
+endfunction()
+
+function(clangformat_target_setup target)
+  get_target_property(sources ${target} SOURCES)
+  message("sources: ${sources}")
+  clangformat_sources_setup(${sources})
 endfunction()
