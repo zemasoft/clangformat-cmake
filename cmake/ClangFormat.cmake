@@ -3,7 +3,7 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
 
-function(clangformat_sources_setup)
+function(clangformat_setup)
   if(NOT CLANGFORMAT_EXECUTABLE)
     set(CLANGFORMAT_EXECUTABLE clang-format)
   endif()
@@ -40,8 +40,7 @@ function(clangformat_sources_setup)
   endif()
 endfunction()
 
-function(clangformat_target_setup target)
+function(target_clangformat_setup target)
   get_target_property(sources ${target} SOURCES)
-  message("sources: ${sources}")
-  clangformat_sources_setup(${sources})
+  clangformat_setup(${sources})
 endfunction()

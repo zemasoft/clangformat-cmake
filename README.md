@@ -32,7 +32,7 @@ if(CLANGFORMAT)
   include(ClangFormat)
 
   # Setup clangformat target
-  clangformat_sources_setup(
+  clangformat_setup(
     include/header.hpp
     src/source.cpp
   )
