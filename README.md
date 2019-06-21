@@ -9,36 +9,29 @@ A simple CMake module for clang-format support.
 Requirements
 ============
 
-The module requires CMake 3.0 and some version of clang-format.
+The module requires CMake 3.0 or higher and some version of clang-format
+installed.
 
 Usage
 =====
 
-1. Copy `ClangFormat.cmake` from the [cmake](cmake) directory to your project's
-   CMakeModules directory. For example to `${PROJECT_SOURCE_DIR}/cmake`.
+1. Copy [`ClangFormat.cmake`](cmake/ClangFormat.cmake) to your project's
+   CMakeModules directory. Usually to `${PROJECT_SOURCE_DIR}/cmake`.
 
 2. Configure your project's `CMakeLists.txt`.
 
 ```cmake
-cmake_minimum_required(VERSION 3.0)
-project(myproject)
-
 # Add project's cmake modules to path
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-option(CLANGFORMAT "Setup clangformat target" ON)
+# Include the module
+include(ClangFormat)
 
-if(CLANGFORMAT)
-  include(ClangFormat)
-
-  # Setup clangformat target
-  clangformat_setup(
-    include/header.hpp
-    src/source.cpp
-  )
-endif()
-
-... # Setup the rest of the project
+# Setup clangformat target
+clangformat_setup(
+  include/header.hpp
+  src/source.cpp
+)
 ```
 
 3. Format using `clangformat` target.
