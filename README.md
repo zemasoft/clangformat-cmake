@@ -1,9 +1,8 @@
-[![Language](https://img.shields.io/badge/language-CMake-blue.svg)](https://cmake.org/)
-[![Licence](https://img.shields.io/badge/license-Boost%201.0-blue.svg)](http://www.boost.org/LICENSE_1_0.txt)
+[![language.badge]][language.url] [![license.badge]][license.url]
 
-# ClangFormat CMake module
+# ClangFormat.cmake module
 
-ClangFormat is a simple CMake module for clang-format support.
+ClangFormat.cmake is a simple CMake module for clang-format support.
 
 ## Requirements
 
@@ -16,15 +15,15 @@ installed.
 
    Copy [`ClangFormat.cmake`](cmake/ClangFormat.cmake) to your project's
    CMake modules directory. Usually to `${PROJECT_SOURCE_DIR}/cmake`.
-   
+
    Or use this project as a submodule with
    `$ git submodule add https://github.com/zemasoft/clangformat-cmake`.
-   
+
 2. Add the module's path to your project's CMake modules path:
 
    ```cmake
    # CMakeLists.txt
-   
+
    list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
    ```
 
@@ -32,7 +31,7 @@ installed.
 
    ```cmake
    # CMakeLists.txt
-   
+
    list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/clangformat-cmake/cmake)
    ```
 
@@ -40,7 +39,7 @@ installed.
 
    ```cmake
    # CMakeLists.txt
-   
+
    include(ClangFormat)
    ```
 
@@ -48,7 +47,7 @@ installed.
 
    ```cmake
    # CMakeLists.txt
-   
+
    clangformat_setup(
      src/hello.hpp
      src/hello.cpp
@@ -59,7 +58,7 @@ installed.
 
    ```cmake
    # CMakeLists.txt
-   
+
    target_clangformat_setup(sometarget)
    ```
 
@@ -87,3 +86,9 @@ installed.
 ## Example
 
 See an example [here](https://github.com/zemasoft/clangformat-cmake-example).
+
+[language.url]:   https://cmake.org/
+[language.badge]: https://img.shields.io/badge/language-CMake-blue.svg
+
+[license.url]:    http://www.boost.org/LICENSE_1_0.txt
+[license.badge]:  https://img.shields.io/badge/license-Boost%201.0-blue.svg
