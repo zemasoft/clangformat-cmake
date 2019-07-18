@@ -11,31 +11,33 @@ installed.
 
 ## Integration
 
-1. Obtain the module:
+1. Obtain the module and add it into your project's CMake modules path:
 
-   Copy [`ClangFormat.cmake`](cmake/ClangFormat.cmake) to your project's
-   CMake modules directory. Usually to `${PROJECT_SOURCE_DIR}/cmake`.
+   * Copy approach:
 
-   Or use this project as a submodule with
-   `$ git submodule add https://github.com/zemasoft/clangformat-cmake`.
+     ```bash
+     $ wget https://raw.githubusercontent.com/zemasoft/clangformat-cmake/master/cmake/ClangFormat.cmake -P cmake
+     ```
 
-2. Add the module's path to your project's CMake modules path:
+     ```cmake
+     # CMakeLists.txt
 
-   ```cmake
-   # CMakeLists.txt
+     list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+     ```
 
-   list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-   ```
+   * Submodule approach:
 
-   or:
+     ```bash
+     $ git submodule add https://github.com/zemasoft/clangformat-cmake
+     ```
 
-   ```cmake
-   # CMakeLists.txt
+     ```cmake
+     # CMakeLists.txt
 
-   list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/clangformat-cmake/cmake)
-   ```
+     list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/clangformat-cmake/cmake)
+     ```
 
-3. Include the module:
+2. Include the module:
 
    ```cmake
    # CMakeLists.txt
@@ -43,7 +45,7 @@ installed.
    include(ClangFormat)
    ```
 
-4. Setup the module:
+3. Setup the module:
 
    ```cmake
    # CMakeLists.txt
