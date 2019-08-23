@@ -18,9 +18,9 @@ function(clangformat_setup)
     endif()
   endif()
 
-  foreach(source ${ARGV})
-    get_filename_component(source ${source} ABSOLUTE)
-    list(APPEND sources ${source})
+  foreach(clangformat_source ${ARGV})
+    get_filename_component(clangformat_source ${clangformat_source} ABSOLUTE)
+    list(APPEND clangformat_sources ${clangformat_source})
   endforeach()
 
   add_custom_target(${PROJECT_NAME}_clangformat
@@ -28,7 +28,7 @@ function(clangformat_setup)
       ${CLANGFORMAT_EXECUTABLE}
       -style=file
       -i
-      ${sources}
+      ${clangformat_sources}
     COMMENT
       "Formating with ${CLANGFORMAT_EXECUTABLE} ..."
   )
