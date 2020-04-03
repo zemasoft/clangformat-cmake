@@ -29,7 +29,8 @@ function(clangformat_setup)
       -style=file
       -i
       ${clangformat_sources}
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    WORKING_DIRECTORY
+      ${CMAKE_SOURCE_DIR}
     COMMENT
       "Formating with ${CLANGFORMAT_EXECUTABLE} ..."
   )
