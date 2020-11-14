@@ -32,7 +32,7 @@ function(clangformat_setup)
     WORKING_DIRECTORY
       ${CMAKE_SOURCE_DIR}
     COMMENT
-      "Formating with ${CLANGFORMAT_EXECUTABLE} ..."
+      "Formatting with ${CLANGFORMAT_EXECUTABLE} ..."
   )
 
   if(TARGET clangformat)
