@@ -69,7 +69,7 @@ installed.
 1. Generate the build system:
 
    ```bash
-   $ cmake . -Bbuild
+   $ cmake -S . -Bbuild
    ```
 
 2. Format sources anytime using `clangformat` target:
