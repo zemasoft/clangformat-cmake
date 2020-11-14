@@ -18,7 +18,7 @@ function(clangformat_setup)
     endif()
   endif()
 
-  foreach(clangformat_source ${ARGV})
+  foreach(clangformat_source ${ARGN})
     get_filename_component(clangformat_source ${clangformat_source} ABSOLUTE)
     list(APPEND clangformat_sources ${clangformat_source})
   endforeach()
